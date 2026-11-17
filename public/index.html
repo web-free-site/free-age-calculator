@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Age Calculator — exact age, countdown & school cutoff</title>
+<meta name="description" content="Calculate exact age in years, months, and days. Compare two dates, birthday countdown, school enrollment cutoff age, JSON export & PDF—free in your browser.">
+<link rel="canonical" href="https://free-age-calculator.web-free.site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Age Calculator — exact age, countdown & school cutoff">
+<meta property="og:description" content="Calculate exact age in years, months, and days. Compare two dates, birthday countdown, school enrollment cutoff age, JSON export & PDF—free in your browser.">
+<meta property="og:url" content="https://free-age-calculator.web-free.site/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Age Calculator — exact age, countdown & school cutoff">
+<meta name="twitter:description" content="Calculate exact age in years, months, and days. Compare two dates, birthday countdown, school enrollment cutoff age, JSON export & PDF—free in your browser.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Free Age Calculator","url":"https://free-age-calculator.web-free.site/","description":"Calculate exact age in years, months, and days, compare two dates, countdown to birthday, and school cutoff age—in your browser.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"en","browserRequirements":"Requires JavaScript"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Free Age Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. All calculations run in your browser with no account and no paid API."}},{"@type":"Question","name":"How is exact age calculated?","acceptedAnswer":{"@type":"Answer","text":"The tool counts full years, then months, then days between birth date and a target date, borrowing days from the previous month when needed (including leap years)."}},{"@type":"Question","name":"Can I compare age between two dates?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use “Compare with another date” to see exact age on any past or future day."}},{"@type":"Question","name":"Does school enrollment mode use official government rules?","acceptedAnswer":{"@type":"Answer","text":"No. You enter your own cutoff date and the tool shows exact age on that day. Admission rules vary by school and region—always confirm with the institution."}},{"@type":"Question","name":"Is my date of birth sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Dates are processed locally. Optional browser localStorage may remember your birth date on this device only."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+
+<script data-cfasync="false" src="https://abscloud.org/1/b622259b0189e00d7f3fd9a81379a408"></script>
+</head>
+<body class="has-site-shell ">
+
+<header class="site-header no-print">
+  <div class="site-header-inner">
+    <a href="/" class="site-wordmark">Free Age Calculator</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/">Calculator</a>
+      <a href="/how-to-calculate-exact-age-in-years-months-and-days/">Exact age guide</a>
+      <a href="/how-to-calculate-age-for-school-enrollment/">School enrollment</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<div class="ad-row ad-top"><div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="728" height="90" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'3176e3cccbaff467c2337433e1c8a9f3','format':'iframe','height':90,'width':728,'params':{}};<\/script><script src=&quot;https://bauval.org/22/3176e3cccbaff467c2337433e1c8a9f3&quot;><\/script></body></html>"></iframe>
+</div></div>
+<div class="page-layout">
+<aside class="ad-rail" aria-label="Advertisement">
+<div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="160" height="600" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'9be2dc610914f1622693d61c96a5a010','format':'iframe','height':600,'width':160,'params':{}};<\/script><script src=&quot;https://bauval.org/22/9be2dc610914f1622693d61c96a5a010&quot;><\/script></body></html>"></iframe>
+</div>
+<div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="160" height="300" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'b386ef505aa8be6ce32ab051612348b5','format':'iframe','height':300,'width':160,'params':{}};<\/script><script src=&quot;https://bauval.org/22/b386ef505aa8be6ce32ab051612348b5&quot;><\/script></body></html>"></iframe>
+</div>
+</aside>
+<div class="page-main">
+
+<main class="app-container">
+  <header class="no-print">
+    <div class="header-left">
+      <h1>Free Age Calculator</h1>
+    </div>
+    <div class="header-actions">
+      <div class="dropdown no-print">
+        <button class="action-btn" id="export-btn" type="button">Export</button>
+        <div class="dropdown-content">
+          <a href="#" id="export-pdf">Print / Save as PDF</a>
+          <a href="#" id="export-json">Download as JSON</a>
+        </div>
+      </div>
+      <button class="action-btn outline no-print" id="share-btn" type="button">Share</button>
+    </div>
+  </header>
+  <p class="seo-intro no-print">Enter your date of birth to see exact age today, optional comparison with another date, birthday countdown, and age on a school enrollment cutoff date—all in your browser.</p>
+  <div id="toast-container" class="no-print"></div>
+
+  <div class="dashboard-grid">
+    <div class="main-column">
+      <div class="glass-card input-card no-print">
+        <div class="input-group">
+          <label for="dob-dd">Date of Birth</label>
+          <div class="custom-date-input" id="dob-container">
+            <input type="text" id="dob-dd" class="date-part" placeholder="DD" maxlength="2" inputmode="numeric" autocomplete="bday-day" aria-label="Birth day">
+            <span class="separator">/</span>
+            <input type="text" id="dob-mm" class="date-part" placeholder="MM" maxlength="2" inputmode="numeric" autocomplete="bday-month" aria-label="Birth month">
+            <span class="separator">/</span>
+            <input type="text" id="dob-yyyy" class="date-part" placeholder="YYYY" maxlength="4" inputmode="numeric" autocomplete="bday-year" aria-label="Birth year">
+          </div>
+          <span class="error-msg" id="dob-error">Please enter a valid date in the past</span>
+        </div>
+        <div class="input-group comparison-group" id="comparison-group" style="display: none;">
+          <label>Compare With (Optional)</label>
+          <div class="custom-date-input" id="comp-container">
+            <input type="text" id="comp-dd" class="date-part" placeholder="DD" maxlength="2" inputmode="numeric" aria-label="Compare day">
+            <span class="separator">/</span>
+            <input type="text" id="comp-mm" class="date-part" placeholder="MM" maxlength="2" inputmode="numeric" aria-label="Compare month">
+            <span class="separator">/</span>
+            <input type="text" id="comp-yyyy" class="date-part" placeholder="YYYY" maxlength="4" inputmode="numeric" aria-label="Compare year">
+          </div>
+        </div>
+        <button class="text-btn" id="toggle-compare" type="button">Compare with another date</button>
+      </div>
+
+      <div class="glass-card primary-result-card" id="primary-result">
+        <div class="age-display" id="age-display">
+          <div class="age-item"><span class="age-value" id="age-years">0</span><span class="age-label">Years</span></div>
+          <div class="age-item"><span class="age-value" id="age-months">0</span><span class="age-label">Months</span></div>
+          <div class="age-item"><span class="age-value" id="age-days">0</span><span class="age-label">Days</span></div>
+        </div>
+      </div>
+
+      <div class="glass-card school-card no-print" id="school-section">
+        <h3>School enrollment cutoff</h3>
+        <p class="school-disclaimer">Enter the cutoff date your school or district uses. This tool only shows exact age on that date—it does not apply any country-specific admission rules.</p>
+        <div class="input-group">
+          <label for="school-dd">Cutoff date</label>
+          <div class="custom-date-input" id="school-container">
+            <input type="text" id="school-dd" class="date-part" placeholder="DD" maxlength="2" inputmode="numeric" aria-label="Cutoff day">
+            <span class="separator">/</span>
+            <input type="text" id="school-mm" class="date-part" placeholder="MM" maxlength="2" inputmode="numeric" aria-label="Cutoff month">
+            <span class="separator">/</span>
+            <input type="text" id="school-yyyy" class="date-part" placeholder="YYYY" maxlength="4" inputmode="numeric" aria-label="Cutoff year">
+          </div>
+          <span class="error-msg" id="school-error">Please enter a valid cutoff date</span>
+        </div>
+        <div class="school-result">
+          <div class="age-item"><span class="age-value" id="school-years">—</span><span class="age-label">Years</span></div>
+          <div class="age-item"><span class="age-value" id="school-months">—</span><span class="age-label">Months</span></div>
+          <div class="age-item"><span class="age-value" id="school-days">—</span><span class="age-label">Days</span></div>
+        </div>
+        <p class="school-cutoff-summary" id="school-cutoff-label">Enter a school cutoff date to see age on that day.</p>
+      </div>
+
+      
+<div class="ad-row ad-mid"><div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="728" height="90" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'3176e3cccbaff467c2337433e1c8a9f3','format':'iframe','height':90,'width':728,'params':{}};<\/script><script src=&quot;https://bauval.org/22/3176e3cccbaff467c2337433e1c8a9f3&quot;><\/script></body></html>"></iframe>
+</div></div>
+<div class="ad-row ad-mid ad-mid-sm"><div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="468" height="60" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'4f2e9b327b1c014bf0c7412860d884a9','format':'iframe','height':60,'width':468,'params':{}};<\/script><script src=&quot;https://bauval.org/22/4f2e9b327b1c014bf0c7412860d884a9&quot;><\/script></body></html>"></iframe>
+</div></div>
+<div class="ad-native">
+  <script async="async" data-cfasync="false" src="https://bauval.org/21/dbedcf08e006f38b8019119b8808c44c"></script>
+  <div id="container-dbedcf08e006f38b8019119b8808c44c"></div>
+</div>
+<div class="ad-row ad-inline"><div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="300" height="250" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'06a454094dfb33b70dadc306183909b0','format':'iframe','height':250,'width':300,'params':{}};<\/script><script src=&quot;https://bauval.org/22/06a454094dfb33b70dadc306183909b0&quot;><\/script></body></html>"></iframe>
+</div></div>
+
+      <div class="glass-card timeline-card">
+        <h3>Life Stage</h3>
+        <div class="timeline" id="timeline">
+          <div class="timeline-step" data-stage="child">Childhood</div>
+          <div class="timeline-step" data-stage="teen">Teen</div>
+          <div class="timeline-step" data-stage="adult">Adult</div>
+          <div class="timeline-step" data-stage="senior">Senior</div>
+        </div>
+      </div>
+
+      <div class="glass-card fun-facts-card">
+        <h3>Fun Facts</h3>
+        <ul class="facts-list">
+          <li>You have blinked approximately <span class="fact-value" id="fact-blinks">0</span> times.</li>
+          <li>You have taken approximately <span class="fact-value" id="fact-breaths">0</span> breaths.</li>
+          <li>Your heart has beaten approximately <span class="fact-value" id="fact-heartbeats">0</span> times.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="side-column">
+      <div class="glass-card next-birthday-card">
+        <h3>Next Birthday In</h3>
+        <div class="birthday-summary" id="birthday-summary">0 Months, 0 Days</div>
+        <p class="birthday-date" id="birthday-date">Your next birthday is on: -</p>
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="cd-item"><span id="cd-days">0</span> Days</div>
+          <div class="cd-item"><span id="cd-hours">0</span> Hours</div>
+          <div class="cd-item"><span id="cd-minutes">0</span> Mins</div>
+          <div class="cd-item"><span id="cd-seconds">0</span> Secs</div>
+        </div>
+      </div>
+
+      <div class="glass-card stats-card">
+        <h3>Detailed Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-label">Total Months</div><div class="stat-value" id="stat-months">0</div></div>
+          <div class="stat-item"><div class="stat-label">Total Weeks</div><div class="stat-value" id="stat-weeks">0</div></div>
+          <div class="stat-item"><div class="stat-label">Total Days</div><div class="stat-value" id="stat-days">0</div></div>
+          <div class="stat-item"><div class="stat-label">Total Hours</div><div class="stat-value" id="stat-hours">0</div></div>
+          <div class="stat-item"><div class="stat-label">Total Minutes</div><div class="stat-value" id="stat-minutes">0</div></div>
+          <div class="stat-item"><div class="stat-label">Total Seconds</div><div class="stat-value" id="stat-seconds">0</div></div>
+        </div>
+      </div>
+
+      <div class="glass-card milestones-card">
+        <h3>Milestones</h3>
+        <ul class="milestones-list" id="milestones-list"></ul>
+        <div class="next-milestone" id="next-milestone"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-block no-print" id="faq">
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item"><strong>Is Free Age Calculator free to use?</strong><p>Yes. All calculations run in your browser with no account and no paid API.</p></div><div class="faq-item"><strong>How is exact age calculated?</strong><p>The tool counts full years, then months, then days between birth date and a target date, borrowing days from the previous month when needed (including leap years).</p></div><div class="faq-item"><strong>Can I compare age between two dates?</strong><p>Yes. Use “Compare with another date” to see exact age on any past or future day.</p></div><div class="faq-item"><strong>Does school enrollment mode use official government rules?</strong><p>No. You enter your own cutoff date and the tool shows exact age on that day. Admission rules vary by school and region—always confirm with the institution.</p></div><div class="faq-item"><strong>Is my date of birth sent to a server?</strong><p>No. Dates are processed locally. Optional browser localStorage may remember your birth date on this device only.</p></div>
+  </section>
+</main>
+</div>
+</div>
+<div class="ad-sticky-mobile"><div class="ad-slot ad-iframe" aria-hidden="true">
+  <iframe title="Advertisement" class="ad-frame" width="320" height="50" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>atOptions = {'key':'ea702d5fc19b4306fbf9f6c948e8f076','format':'iframe','height':50,'width':320,'params':{}};<\/script><script src=&quot;https://bauval.org/22/ea702d5fc19b4306fbf9f6c948e8f076&quot;><\/script></body></html>"></iframe>
+</div></div>
+
+<footer class="site-footer no-print">
+  <div class="site-footer-inner">
+    <span><strong>Free Age Calculator</strong> — client-side only, no sign-up.</span>
+    <span>Part of <a href="https://web-free.site/">web-free.site</a></span>
+    <span>Based on <a href="https://github.com/RajkumarKamarthi/Age-Calculator" rel="noopener">Age-Calculator</a> by Rajkumar Kamarthi (MIT)</span>
+    <a class="smartlink" href="https://araplhn.org/4/feb65230b00f6b52e53b7ba2cb781697" rel="nofollow sponsored">Resources</a>
+    <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a></span>
+  </div>
+</footer>
+<script data-cfasync="false" src="https://bauval.org/14/4ba9d3530ee8e2ca4317024b88a71059"></script>
+
+<aside id="wf-more-tools" class="wf-more-tools no-print" aria-labelledby="wf-mt-title">
+  <style>
+    .wf-more-tools{box-sizing:border-box;width:100%;margin:2.5rem 0 0;padding:1.5rem 1rem 5rem;border-top:1px solid rgba(255,255,255,.12);background:rgba(15,23,42,.6);color:#e2e8f0;font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5}
+    .wf-more-tools *{box-sizing:border-box}
+    .wf-more-tools h2{margin:0 0 .35rem;font-size:1.15rem;font-weight:700;color:#f8fafc}
+    .wf-more-tools .wf-mt-lead{margin:0 0 1rem;color:#94a3b8}
+    .wf-more-tools .wf-mt-lead a{color:#818cf8}
+    .wf-more-tools .wf-mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem 1.25rem}
+    .wf-more-tools h3{margin:0 0 .4rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8}
+    .wf-more-tools ul{margin:0;padding:0;list-style:none}
+    .wf-more-tools li{margin:0 0 .25rem}
+    .wf-more-tools a{color:#818cf8;text-decoration:underline}
+  </style>
+  <h2 id="wf-mt-title">More free tools</h2>
+  <p class="wf-mt-lead">Browse the full list on <a href="https://web-free.site/">web-free.site</a>.</p>
+  <div class="wf-mt-grid">
+    <div class="wf-mt-cat"><h3>Guides on this site</h3><ul>
+      <li><a href="/how-to-calculate-exact-age-in-years-months-and-days/">Exact age in years, months, days</a></li>
+      <li><a href="/how-to-calculate-age-for-school-enrollment/">Age for school enrollment</a></li>
+    </ul></div>
+    <div class="wf-mt-cat"><h3>Calculators</h3><ul>
+      <li><strong>Free Age Calculator</strong></li>
+      <li><a href="https://free-online-calculator.web-free.site/">Free Online Calculator</a></li>
+      <li><a href="https://free-unit-converter.web-free.site/">Free Unit Converter</a></li>
+      <li><a href="https://free-currency-converter.web-free.site/">Free Currency Converter</a></li>
+    </ul></div>
+  </div>
+</aside>
+<script src="/assets/age-core.js"></script>
+<script src="/assets/age-calculator.js"></script>
+</body>
+</html>

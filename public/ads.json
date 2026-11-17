@@ -1,0 +1,51 @@
+{
+  "site": "https://free-age-calculator.web-free.site",
+  "siteId": 6206785,
+  "bannerScriptBase": "https://bauval.org/22",
+  "units": {
+    "popunder": {
+      "script": "https://abscloud.org/1/b622259b0189e00d7f3fd9a81379a408"
+    },
+    "native": {
+      "script": "https://bauval.org/21/dbedcf08e006f38b8019119b8808c44c",
+      "container": "container-dbedcf08e006f38b8019119b8808c44c"
+    },
+    "smartlink": {
+      "url": "https://araplhn.org/4/feb65230b00f6b52e53b7ba2cb781697",
+      "label": "Resources"
+    },
+    "socialBar": {
+      "script": "https://bauval.org/14/4ba9d3530ee8e2ca4317024b88a71059"
+    },
+    "banner728x90": {
+      "key": "3176e3cccbaff467c2337433e1c8a9f3",
+      "width": 728,
+      "height": 90
+    },
+    "banner468x60": {
+      "key": "4f2e9b327b1c014bf0c7412860d884a9",
+      "width": 468,
+      "height": 60
+    },
+    "banner300x250": {
+      "key": "06a454094dfb33b70dadc306183909b0",
+      "width": 300,
+      "height": 250
+    },
+    "banner160x600": {
+      "key": "9be2dc610914f1622693d61c96a5a010",
+      "width": 160,
+      "height": 600
+    },
+    "banner160x300": {
+      "key": "b386ef505aa8be6ce32ab051612348b5",
+      "width": 160,
+      "height": 300
+    },
+    "banner320x50": {
+      "key": "ea702d5fc19b4306fbf9f6c948e8f076",
+      "width": 320,
+      "height": 50
+    }
+  }
+}
