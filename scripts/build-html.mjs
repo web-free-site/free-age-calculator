@@ -17,9 +17,9 @@ function adIframe(unitKey) {
   const h = u.height;
   const src = `${ads.bannerScriptBase}/${key}`;
   const at = `atOptions = {'key':'${key}','format':'iframe','height':${h},'width':${w},'params':{}};`;
-  const inner = `<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>${at}<\\/script><script src=&quot;${src}&quot;><\\/script></body></html>`;
+  const inner = `<!DOCTYPE html><html><head><meta charset=&quot;utf-8&quot;><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>${at}</script><script src=&quot;${src}&quot;></script></body></html>`;
   return `<div class="ad-slot ad-iframe" aria-hidden="true">
-  <iframe title="Advertisement" class="ad-frame" width="${w}" height="${h}" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="${inner}"></iframe>
+  <iframe title="Advertisement" class="ad-frame" width="${w}" height="${h}" scrolling="no" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" srcdoc="${inner}"></iframe>
 </div>`;
 }
 
