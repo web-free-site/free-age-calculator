@@ -49,6 +49,7 @@ const nav = `
       <a href="/">Calculator</a>
       <a href="/how-to-calculate-exact-age-in-years-months-and-days/">Exact age guide</a>
       <a href="/how-to-calculate-age-for-school-enrollment/">School enrollment</a>
+      <a href="/how-to-count-days-until-your-next-birthday/">Birthday countdown</a>
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
     </nav>
@@ -87,6 +88,7 @@ const moreTools = `
     <div class="wf-mt-cat"><h3>Guides on this site</h3><ul>
       <li><a href="/how-to-calculate-exact-age-in-years-months-and-days/">Exact age in years, months, days</a></li>
       <li><a href="/how-to-calculate-age-for-school-enrollment/">Age for school enrollment</a></li>
+      <li><a href="/how-to-count-days-until-your-next-birthday/">Days until your next birthday</a></li>
     </ul></div>
     <div class="wf-mt-cat"><h3>Documents &amp; writing</h3><ul><li><a href="https://free-word-counter.web-free.site/">Free Word Counter</a></li><li><a href="https://free-pdf-converter.web-free.site/">Free PDF Converter</a></li><li><a href="https://free-cv-maker.web-free.site/">Free CV Maker</a></li><li><a href="https://free-invoice-generator.web-free.site/">Free Invoice Generator</a></li><li><a href="https://free-typing-test.web-free.site/">Free Typing Test</a></li><li><a href="https://free-signature-generator.web-free.site/">Free Signature Generator</a></li><li><a href="https://free-email-signature-generator.web-free.site/">Free Email Signature Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Images &amp; codes</h3><ul><li><a href="https://free-qr-code-creator.web-free.site/">Free QR Code Creator</a></li><li><a href="https://free-image-resizer.web-free.site/">Free Image Resizer</a></li><li><a href="https://free-image-to-text.web-free.site/">Free Image to Text</a></li><li><a href="https://free-background-remover.web-free.site/">Free Background Remover</a></li><li><a href="https://free-image-compressor.web-free.site/">Free Image Compressor</a></li></ul></div><div class="wf-mt-cat"><h3>Calculators &amp; currency</h3><ul><li><a href="https://free-online-calculator.web-free.site/">Free Online Calculator</a></li><li><a href="https://free-currency-converter.web-free.site/">Free Currency Converter</a></li><li><a href="https://free-unit-converter.web-free.site/">Free Unit Converter</a></li><li><a href="https://free-loan-calculator.web-free.site/">Free Loan Calculator</a></li><li><strong>Free Age Calculator</strong></li><li><a href="https://free-percentage-calculator.web-free.site/">Free Percentage Calculator</a></li><li><a href="https://free-bmi-calculator.web-free.site/">Free BMI Calculator</a></li></ul></div><div class="wf-mt-cat"><h3>Text &amp; SEO</h3><ul><li><a href="https://free-ai-humanizer.web-free.site/">Free AI Humanizer</a></li><li><a href="https://free-seo-generator.web-free.site/">Free SEO Generator</a></li><li><a href="https://free-backlink-generator.web-free.site/">Free Backlink Generator</a></li><li><a href="https://free-json-formatter.web-free.site/">Free JSON Formatter</a></li><li><a href="https://free-text-to-speech.web-free.site/">Free Text to Speech</a></li><li><a href="https://free-speech-to-text.web-free.site/">Free Speech to Text</a></li><li><a href="https://free-diff-checker.web-free.site/">Free Diff Checker</a></li></ul></div><div class="wf-mt-cat"><h3>Audio &amp; video</h3><ul><li><a href="https://free-video-to-mp3.web-free.site/">Free Video to MP3 Converter</a></li><li><a href="https://free-mp3-cutter.web-free.site/">Free MP3 Cutter</a></li><li><a href="https://free-screen-recorder.web-free.site/">Free Screen Recorder</a></li></ul></div><div class="wf-mt-cat"><h3>Files</h3><ul><li><a href="https://free-zip-tool.web-free.site/">Free ZIP Tool</a></li></ul></div><div class="wf-mt-cat"><h3>Test data</h3><ul><li><a href="https://free-fake-address-generator.web-free.site/">Free Fake Address Generator</a></li><li><a href="https://free-fake-name-generator.web-free.site/">Free Fake Name Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Security &amp; passwords</h3><ul><li><a href="https://free-password-generator.web-free.site/">Free Password Generator</a></li></ul></div>
   </div>
@@ -346,7 +348,7 @@ const indexHtml = pageShell({
   includeCalculatorScripts: true,
 });
 
-function articlePage({ slug, title, description, h1, articleHtml }) {
+function articlePage({ slug, title, description, h1, articleHtml, extraLd = [] }) {
   const canonical = `${SITE}/${slug}/`;
   const main = `<main class="prose-static app-container">
   <article>
@@ -362,6 +364,7 @@ function articlePage({ slug, title, description, h1, articleHtml }) {
     jsonLd: [
       { ...webAppLd, url: canonical, name: title, description },
       faqLd,
+      ...extraLd,
     ],
     mainContent: main,
   });
@@ -410,6 +413,45 @@ const pages = [
       <p>On the <a href="/">home page</a>, enter the birth date, then fill in <strong>School enrollment cutoff</strong>. You will see years, months, and days on that cutoff.</p>
       <h2>Important disclaimer</h2>
       <p>Enrollment policies differ worldwide and can change yearly. Minimum ages, grade placement, and exceptions are set by local authorities—not by this calculator. Always verify requirements with the school before enrolling.</p>`,
+    }),
+  },
+  {
+    file: 'how-to-count-days-until-your-next-birthday/index.html',
+    html: articlePage({
+      slug: 'how-to-count-days-until-your-next-birthday',
+      title: 'How to count the days until your next birthday',
+      description:
+        'Work out how many months and days are left until your next birthday, including leap-day birthdays, by hand or with a free browser tool.',
+      h1: 'How to count the days until your next birthday',
+      extraLd: [{
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to count the days until your next birthday',
+        description: 'Work out how many months and days are left until your next birthday, including leap-day birthdays, by hand or with a free browser tool.',
+        inLanguage: 'en',
+        url: SITE + '/how-to-count-days-until-your-next-birthday/',
+        step: [
+          { '@type': 'HowToStep', name: 'Find the next birthday date', text: 'Take your birth month and day and put them in the current year. If that date has already passed this year, use next year instead.' },
+          { '@type': 'HowToStep', name: 'Count whole months', text: 'Count the full calendar months from today to the same day number before the birthday.' },
+          { '@type': 'HowToStep', name: 'Count the remaining days', text: 'Add the days left after the last whole month. Remember that months have 28 to 31 days.' },
+          { '@type': 'HowToStep', name: 'Check with the calculator', text: 'Enter your date of birth in Free Age Calculator to see the next birthday date and a live countdown.' },
+        ],
+      }],
+      articleHtml: `
+      <p>Counting down to a birthday sounds simple, but months have different lengths and some people are born on 29 February. This guide shows how to work out the months and days left by hand, and how to check the answer in a few seconds with the <a href="/">Free Age Calculator</a>.</p>
+      <h2>Step 1: Find the date of your next birthday</h2>
+      <p>Put your birth month and day in the current year. If that date is still ahead (or is today), that is your next birthday. If it has already passed, move it to next year. Example: born on 14 March, today is 22 November → the next birthday is 14 March of next year.</p>
+      <h2>Step 2: Count the whole months</h2>
+      <p>Move forward one calendar month at a time while you stay on or before the birthday. From 22 November you can step to 22 December, 22 January and 22 February — that is <strong>3 whole months</strong>. One more step (22 March) would go past 14 March, so stop.</p>
+      <h2>Step 3: Count the remaining days</h2>
+      <p>Count the days from the last step (22 February) to the birthday (14 March). February has 28 days in a common year, so that is 6 days to the end of February plus 14 days in March = <strong>20 days</strong>. In a leap year February has 29 days, giving 21 days. The answer is therefore “3 months and 20 days” (or 21 in a leap year).</p>
+      <h2>If you want the total number of days</h2>
+      <p>Some people prefer a single number (“112 days to go”). Add the days left in each month: the rest of the current month, every full month in between, then the birthday’s day number. This is where mistakes creep in, because you must use the correct length for every month, including February.</p>
+      <h2>Birthdays on 29 February</h2>
+      <p>In years without a 29 February there is no exact anniversary. People and institutions use different conventions—often 28 February or 1 March. A countdown tool has to pick one, so if the exact date matters (for example for a legal age), check the rule that applies to you.</p>
+      <h2>Do it instantly in your browser</h2>
+      <p>On the <a href="/">home page</a>, enter your date of birth. The <strong>Next Birthday In</strong> card shows the months and days left, the date of your next birthday, and a live countdown. Everything is calculated locally in your browser; your date of birth is not sent to a server.</p>
+      <p>Related guides: <a href="/how-to-calculate-exact-age-in-years-months-and-days/">how to calculate exact age in years, months, and days</a> and <a href="/how-to-calculate-age-for-school-enrollment/">how to calculate age for school enrollment</a>.</p>`,
     }),
   },
   {
@@ -479,6 +521,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <url><loc>${SITE}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>${SITE}/how-to-calculate-exact-age-in-years-months-and-days/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/how-to-calculate-age-for-school-enrollment/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE}/how-to-count-days-until-your-next-birthday/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/about/</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>${SITE}/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>${SITE}/terms/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
