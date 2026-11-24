@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { TOOL_PAGES, AGE_TOOL_LINKS } from './tool-pages-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -68,6 +69,18 @@ const footer = `
 </footer>
 <script data-cfasync="false" src="${ads.units.socialBar.script}"></script>`;
 
+const ageToolsBlock = `
+<section class="age-tools-block no-print" aria-labelledby="age-tools-title">
+  <h2 id="age-tools-title">More age tools</h2>
+  <p class="age-tools-lead">Specialized calculators on this site—all free, all run in your browser:</p>
+  <ul class="age-tools-list">
+    ${AGE_TOOL_LINKS.map(
+      ({ slug, label }) => `<li><a href="/${slug}/">${label}</a></li>`,
+    ).join('\n    ')}
+    <li><a href="/">Main age calculator (home)</a></li>
+  </ul>
+</section>`;
+
 const moreTools = `
 <aside id="wf-more-tools" class="wf-more-tools no-print" aria-labelledby="wf-mt-title">
   <style>
@@ -89,16 +102,30 @@ const moreTools = `
       <li><a href="/how-to-calculate-exact-age-in-years-months-and-days/">Exact age in years, months, days</a></li>
       <li><a href="/how-to-calculate-age-for-school-enrollment/">Age for school enrollment</a></li>
       <li><a href="/how-to-count-days-until-your-next-birthday/">Days until your next birthday</a></li>
+      <li><a href="/age-difference-calculator/">Age difference calculator</a></li>
+      <li><a href="/days-until-birthday/">Days until birthday</a></li>
+      <li><a href="/chronological-age-calculator/">Chronological age</a></li>
+      <li><a href="/day-of-the-week-born/">Day of week born</a></li>
+      <li><a href="/school-admission-age-calculator/">School admission age</a></li>
     </ul></div>
     <div class="wf-mt-cat"><h3>Documents &amp; writing</h3><ul><li><a href="https://free-word-counter.web-free.site/?ref=age-calculator">Free Word Counter</a></li><li><a href="https://free-pdf-converter.web-free.site/?ref=age-calculator">Free PDF Converter</a></li><li><a href="https://free-cv-maker.web-free.site/?ref=age-calculator">Free CV Maker</a></li><li><a href="https://free-invoice-generator.web-free.site/?ref=age-calculator">Free Invoice Generator</a></li><li><a href="https://free-typing-test.web-free.site/?ref=age-calculator">Free Typing Test</a></li><li><a href="https://free-signature-generator.web-free.site/?ref=age-calculator">Free Signature Generator</a></li><li><a href="https://free-email-signature-generator.web-free.site/?ref=age-calculator">Free Email Signature Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Images &amp; codes</h3><ul><li><a href="https://free-qr-code-creator.web-free.site/?ref=age-calculator">Free QR Code Creator</a></li><li><a href="https://free-image-resizer.web-free.site/?ref=age-calculator">Free Image Resizer</a></li><li><a href="https://free-image-to-text.web-free.site/?ref=age-calculator">Free Image to Text</a></li><li><a href="https://free-background-remover.web-free.site/?ref=age-calculator">Free Background Remover</a></li><li><a href="https://free-image-compressor.web-free.site/?ref=age-calculator">Free Image Compressor</a></li><li><a href="https://free-heic-to-jpg.web-free.site/?ref=age-calculator">Free HEIC to JPG Converter</a></li><li><a href="https://free-image-upscaler.web-free.site/?ref=age-calculator">Free Image Upscaler</a></li><li><a href="https://free-passport-photo-maker.web-free.site/?ref=age-calculator">Free Passport Photo Maker</a></li><li><a href="https://free-png-to-svg.web-free.site/?ref=age-calculator">Free PNG to SVG Converter</a></li><li><a href="https://free-meme-generator.web-free.site/?ref=age-calculator">Free Meme Generator</a></li><li><a href="https://free-color-picker.web-free.site/?ref=age-calculator">Free Color Picker</a></li><li><a href="https://free-gif-maker.web-free.site/?ref=age-calculator">Free GIF Maker</a></li><li><a href="https://free-photo-editor.web-free.site/?ref=age-calculator">Free Photo Editor</a></li><li><a href="https://free-logo-maker.web-free.site/?ref=age-calculator">Free Logo Maker</a></li></ul></div><div class="wf-mt-cat"><h3>Calculators &amp; currency</h3><ul><li><a href="https://free-online-calculator.web-free.site/en/?ref=age-calculator">Free Online Calculator</a></li><li><a href="https://free-currency-converter.web-free.site/?ref=age-calculator">Free Currency Converter</a></li><li><a href="https://free-unit-converter.web-free.site/?ref=age-calculator">Free Unit Converter</a></li><li><a href="https://free-loan-calculator.web-free.site/?ref=age-calculator">Free Loan Calculator</a></li><li><strong>Free Age Calculator</strong></li><li><a href="https://free-percentage-calculator.web-free.site/?ref=age-calculator">Free Percentage Calculator</a></li><li><a href="https://free-bmi-calculator.web-free.site/?ref=age-calculator">Free BMI Calculator</a></li></ul></div><div class="wf-mt-cat"><h3>Text &amp; SEO</h3><ul><li><a href="https://free-ai-humanizer.web-free.site/?ref=age-calculator">Free AI Humanizer</a></li><li><a href="https://free-seo-generator.web-free.site/?ref=age-calculator">Free SEO Generator</a></li><li><a href="https://free-backlink-generator.web-free.site/?ref=age-calculator">Free Backlink Generator</a></li><li><a href="https://free-json-formatter.web-free.site/?ref=age-calculator">Free JSON Formatter</a></li><li><a href="https://free-text-to-speech.web-free.site/?ref=age-calculator">Free Text to Speech</a></li><li><a href="https://free-speech-to-text.web-free.site/?ref=age-calculator">Free Speech to Text</a></li><li><a href="https://free-diff-checker.web-free.site/?ref=age-calculator">Free Diff Checker</a></li><li><a href="https://free-citation-generator.web-free.site/?ref=age-calculator">Free Citation Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Audio &amp; video</h3><ul><li><a href="https://free-video-to-mp3.web-free.site/?ref=age-calculator">Free Video to MP3 Converter</a></li><li><a href="https://free-mp3-cutter.web-free.site/?ref=age-calculator">Free MP3 Cutter</a></li><li><a href="https://free-screen-recorder.web-free.site/?ref=age-calculator">Free Screen Recorder</a></li><li><a href="https://free-video-compressor.web-free.site/?ref=age-calculator">Free Video Compressor</a></li><li><a href="https://free-video-to-gif.web-free.site/?ref=age-calculator">Free Video to GIF Converter</a></li><li><a href="https://free-audio-converter.web-free.site/?ref=age-calculator">Free Audio Converter</a></li><li><a href="https://free-video-converter.web-free.site/?ref=age-calculator">Free Video Converter</a></li></ul></div><div class="wf-mt-cat"><h3>Files</h3><ul><li><a href="https://free-zip-tool.web-free.site/?ref=age-calculator">Free ZIP Tool</a></li></ul></div><div class="wf-mt-cat"><h3>Test data</h3><ul><li><a href="https://free-fake-address-generator.web-free.site/?ref=age-calculator">Free Fake Address Generator</a></li><li><a href="https://free-fake-name-generator.web-free.site/?ref=age-calculator">Free Fake Name Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Security &amp; passwords</h3><ul><li><a href="https://free-password-generator.web-free.site/?ref=age-calculator">Free Password Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Time</h3><ul><li><a href="https://free-time-zone-converter.web-free.site/?ref=age-calculator">Free Time Zone Converter</a></li></ul></div><div class="wf-mt-cat"><h3>Drawing</h3><ul><li><a href="https://free-whiteboard.web-free.site/?ref=age-calculator">Free Whiteboard</a></li></ul></div><div class="wf-mt-cat"><h3>Random &amp; pickers</h3><ul><li><a href="https://free-spin-wheel.web-free.site/?ref=age-calculator">Free Spin Wheel</a></li></ul></div>
   </div>
 </aside>`;
 
-function pageShell({ title, description, canonical, jsonLd, bodyClass, mainContent, includeCalculatorScripts = false }) {
+function pageShell({
+  title,
+  description,
+  canonical,
+  jsonLd,
+  bodyClass,
+  mainContent,
+  includeCalculatorScripts = false,
+  extraScripts = '',
+}) {
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   const scripts = includeCalculatorScripts
     ? `<script src="/assets/age-core.js"></script>\n<script src="/assets/age-calculator.js"></script>`
-    : '';
+    : extraScripts;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,9 +138,13 @@ function pageShell({ title, description, canonical, jsonLd, bodyClass, mainConte
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${SITE}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
+<meta name="twitter:image" content="${SITE}/og.png">
 ${ld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -330,6 +361,8 @@ const calculatorMain = `
     </div>
   </div>
 
+  ${ageToolsBlock}
+
   <section class="faq-block no-print" id="faq">
     <h2>Frequently asked questions</h2>
     ${faqEntities
@@ -347,6 +380,67 @@ const indexHtml = pageShell({
   mainContent: calculatorMain,
   includeCalculatorScripts: true,
 });
+
+function toolPage(def) {
+  const {
+    slug,
+    title,
+    description,
+    h1,
+    toolHtml,
+    articleHtml,
+    faq,
+    script,
+    webAppName,
+    webAppDescription,
+  } = def;
+  const canonical = `${SITE}/${slug}/`;
+  const faqEntities = faq.map((q) => ({
+    '@type': 'Question',
+    name: q.name,
+    acceptedAnswer: { '@type': 'Answer', text: q.answer },
+  }));
+  const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqEntities };
+  const webAppLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: webAppName,
+    url: canonical,
+    description: webAppDescription,
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    inLanguage: 'en',
+    browserRequirements: 'Requires JavaScript',
+  };
+  const main = `<main class="app-container">
+  <h1>${h1}</h1>
+  <p class="seo-intro no-print">${webAppDescription}</p>
+  ${toolHtml}
+  ${adMidBlock}
+  <article class="prose-static tool-guide">
+    ${articleHtml}
+  </article>
+  <section class="faq-block no-print" id="faq">
+    <h2>Frequently asked questions</h2>
+    ${faq
+      .map((q) => `<div class="faq-item"><strong>${q.name}</strong><p>${q.answer}</p></div>`)
+      .join('\n    ')}
+  </section>
+  ${ageToolsBlock}
+</main>`;
+  const extraScripts = `<script src="/assets/age-core.js"></script>
+<script src="/assets/page-tools-common.js"></script>
+<script src="${script}"></script>`;
+  return pageShell({
+    title,
+    description,
+    canonical,
+    jsonLd: [webAppLd, faqLd],
+    mainContent: main,
+    extraScripts,
+  });
+}
 
 function articlePage({ slug, title, description, h1, articleHtml, extraLd = [] }) {
   const canonical = `${SITE}/${slug}/`;
@@ -508,6 +602,7 @@ const pages = [
       <p>Technical credits and license information are on the <a href="/about/">About</a> page.</p>`,
     }),
   },
+  ...TOOL_PAGES.map((def) => ({ file: def.file, html: toolPage(def) })),
 ];
 
 for (const { file, html } of pages) {
@@ -522,6 +617,11 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <url><loc>${SITE}/how-to-calculate-exact-age-in-years-months-and-days/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/how-to-calculate-age-for-school-enrollment/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/how-to-count-days-until-your-next-birthday/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE}/age-difference-calculator/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>${SITE}/days-until-birthday/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>${SITE}/chronological-age-calculator/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>${SITE}/day-of-the-week-born/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>${SITE}/school-admission-age-calculator/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>${SITE}/about/</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>${SITE}/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>${SITE}/terms/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>

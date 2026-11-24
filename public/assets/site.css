@@ -114,6 +114,35 @@ body.has-site-shell .app-container { margin: 1rem auto; padding: 0; }
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
+.age-tools-block {
+  margin: 2.5rem 0 1rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.45);
+}
+.age-tools-block h2 {
+  color: var(--text-main);
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+.age-tools-lead {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+.age-tools-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  columns: 1;
+}
+@media (min-width: 480px) {
+  .age-tools-list { columns: 2; column-gap: 1.5rem; }
+}
+.age-tools-list li { margin: 0.35rem 0; break-inside: avoid; }
+.age-tools-list a { color: #a5b4fc; text-decoration: underline; }
+.age-tools-list a:hover { color: #c7d2fe; }
+.tool-guide { max-width: 70ch; }
 @media (max-width: 960px) { .ad-rail { display: none; } }
 @media (max-width: 560px) {
   .ad-sticky-mobile { display: flex; }
